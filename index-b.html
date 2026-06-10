@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swapnil Nangare — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0A0A0F;
+  --surface:#111118;
+  --surface2:#16161F;
+  --border:#1E1E2E;
+  --border2:#2A2A3E;
+  --text:#E8E8F0;
+  --muted:#6B6B88;
+  --faint:#2A2A3A;
+  --accent:#7B6FFF;
+  --accent2:#00D4AA;
+  --mono:'IBM Plex Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* GRID BACKGROUND */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(123,111,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,111,255,0.03) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  background:rgba(10,10,15,0.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 2.5rem;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-logo{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--accent);
+  text-decoration:none;
+  letter-spacing:0.05em;
+}
+
+.nav-links{display:flex;gap:2rem;list-style:none}
+
+.nav-links a{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--muted);
+  text-decoration:none;
+  letter-spacing:0.05em;
+  transition:color 0.2s;
+}
+
+.nav-links a:hover{color:var(--text)}
+
+/* WRAPPER */
+.wrap{
+  max-width:740px;
+  margin:0 auto;
+  padding:0 2rem;
+  position:relative;
+  z-index:1;
+}
+
+/* HERO */
+#hero{
+  padding-top:130px;
+  padding-bottom:100px;
+}
+
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--accent2);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  margin-bottom:2rem;
+}
+
+.hero-tag::before{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--accent2);
+  animation:pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.4;transform:scale(0.8)}
+}
+
+h1{
+  font-size:clamp(2.4rem,5vw,3.6rem);
+  font-weight:300;
+  letter-spacing:-0.03em;
+  line-height:1.1;
+  margin-bottom:2rem;
+  color:var(--text);
+}
+
+h1 .highlight{
+  font-weight:500;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-sub{
+  font-size:16px;
+  color:var(--muted);
+  max-width:540px;
+  line-height:1.8;
+  margin-bottom:3rem;
+}
+
+.hero-sub strong{color:var(--text);font-weight:500}
+
+.hero-stats{
+  display:flex;
+  gap:0;
+  margin-bottom:3rem;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  width:fit-content;
+}
+
+.stat{
+  padding:1rem 1.75rem;
+  border-right:1px solid var(--border);
+  text-align:center;
+}
+
+.stat:last-child{border-right:none}
+
+.stat-num{
+  font-family:var(--mono);
+  font-size:22px;
+  font-weight:500;
+  color:var(--text);
+  display:block;
+}
+
+.stat-num .accent{color:var(--accent)}
+.stat-num .accent2{color:var(--accent2)}
+
+.stat-label{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  display:block;
+  margin-top:3px;
+}
+
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+.btn{
+  display:inline-block;
+  padding:10px 22px;
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:500;
+  border-radius:6px;
+  text-decoration:none;
+  letter-spacing:0.04em;
+  transition:all 0.2s;
+  cursor:pointer;
+  border:none;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+}
+
+.btn-primary:hover{background:#9088ff;transform:translateY(-1px)}
+
+.btn-secondary{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid var(--border2);
+}
+
+.btn-secondary:hover{color:var(--text);border-color:var(--muted)}
+
+/* SECTION */
+.section{padding:80px 0}
+
+.section-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:3rem;
+}
+
+.section-num{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--accent);
+  letter-spacing:0.1em;
+}
+
+.section-title{
+  font-size:13px;
+  font-weight:500;
+  color:var(--text);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.section-line{flex:1;height:1px;background:var(--border)}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:1.5rem;
+}
+
+.about-cell{
+  background:var(--surface);
+  padding:1.5rem;
+}
+
+.about-cell-label{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  margin-bottom:0.75rem;
+}
+
+.about-cell-value{font-size:14px;color:var(--text);line-height:1.6}
+
+.about-body{
+  font-size:15px;
+  color:var(--muted);
+  line-height:1.85;
+}
+
+.about-body strong{color:var(--text);font-weight:500}
+.about-body p+p{margin-top:1rem}
+
+/* PROJECTS */
+.project-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:1.75rem;
+  margin-bottom:1px;
+  transition:border-color 0.2s,background 0.2s;
+  text-decoration:none;
+  color:inherit;
+  display:block;
+  position:relative;
+  overflow:hidden;
+}
+
+.project-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  opacity:0;
+  transition:opacity 0.2s;
+}
+
+.project-card:hover{
+  border-color:var(--border2);
+  background:var(--surface2);
+}
+
+.project-card:hover::before{opacity:1}
+
+.project-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:0.75rem;
+}
+
+.project-title{
+  font-size:15px;
+  font-weight:500;
+  color:var(--text);
+}
+
+.project-period{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:0.04em;
+  flex-shrink:0;
+  margin-left:1rem;
+}
+
+.project-impact{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--accent2);
+  margin-bottom:0.75rem;
+  letter-spacing:0.02em;
+}
+
+.project-desc{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:1.25rem;
+}
+
+.project-tags{display:flex;flex-wrap:wrap;gap:6px}
+
+.tag{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  border:1px solid var(--border2);
+  padding:3px 8px;
+  border-radius:4px;
+  letter-spacing:0.04em;
+  transition:color 0.2s,border-color 0.2s;
+}
+
+.project-card:hover .tag{color:var(--text);border-color:var(--faint)}
+
+/* SKILLS */
+.skills-table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.skills-row{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  border-bottom:1px solid var(--border);
+}
+
+.skills-row:last-child{border-bottom:none}
+
+.skills-cat{
+  background:var(--surface);
+  padding:1.1rem 1.5rem;
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  border-right:1px solid var(--border);
+}
+
+.skills-items{
+  background:var(--surface2);
+  padding:1.1rem 1.5rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+
+.skill-chip{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text);
+  padding:3px 10px;
+  border-radius:4px;
+  background:var(--faint);
+  letter-spacing:0.02em;
+}
+
+.skill-chip.hot{
+  color:var(--accent);
+  background:rgba(123,111,255,0.1);
+  border:1px solid rgba(123,111,255,0.2);
+}
+
+/* CERTS */
+.cert-list{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.cert-item{
+  background:var(--surface);
+  padding:1rem 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.cert-name{font-size:13px;font-weight:500;color:var(--text)}
+.cert-org{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--accent2);
+  letter-spacing:0.04em;
+  flex-shrink:0;
+}
+
+/* CONTACT */
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.contact-link{
+  background:var(--surface);
+  padding:1.1rem 1.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-decoration:none;
+  color:var(--text);
+  transition:background 0.15s;
+  gap:1rem;
+}
+
+.contact-link:hover{background:var(--surface2)}
+
+.contact-link-label{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  min-width:80px;
+}
+
+.contact-link-value{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--text);
+}
+
+.contact-arrow{color:var(--border2);transition:color 0.15s,transform 0.15s;font-size:14px}
+.contact-link:hover .contact-arrow{color:var(--accent);transform:translate(2px,-2px)}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem 2.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+
+.footer-note{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:0.04em;
+}
+
+/* ANIMATIONS */
+.fade-up{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+
+.fade-up.visible{opacity:1;transform:none}
+
+/* TERMINAL CURSOR */
+.cursor{
+  display:inline-block;
+  width:2px;height:1em;
+  background:var(--accent);
+  vertical-align:text-bottom;
+  margin-left:2px;
+  animation:blink 1s step-end infinite;
+}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+@media(max-width:600px){
+  nav{padding:0 1rem}
+  .nav-links{gap:1.25rem}
+  .wrap{padding:0 1.25rem}
+  #hero{padding-top:90px;padding-bottom:60px}
+  .hero-stats{flex-direction:column;width:100%}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}
+  .stat:last-child{border-bottom:none}
+  .about-grid{grid-template-columns:1fr}
+  .skills-row{grid-template-columns:1fr}
+  .skills-cat{border-right:none;border-bottom:1px solid var(--border)}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .fade-up{opacity:1;transform:none;transition:none}
+  .hero-tag::before{animation:none}
+  .cursor{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">swapnil_nangare.py</a>
+  <ul class="nav-links">
+    <li><a href="#about">about</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#profiles">profiles</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+<section id="hero">
+  <div class="hero-tag">Available for opportunities</div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:500;letter-spacing:-0.03em;color:var(--text);line-height:1;margin-bottom:1rem">Swapnil<br>Nangare</div>
+  <h1 style="font-size:clamp(1rem,2.5vw,1.4rem);font-weight:300;letter-spacing:0.01em;color:var(--muted);margin-bottom:2rem">
+    AI Systems Engineer &nbsp;&middot;&nbsp; <span class="highlight" style="font-weight:400">LLMs. RAG. Scale.</span>
+  </h1>
+  <p class="hero-sub">
+    I build <strong>production AI systems</strong> — from LLM-powered automation pipelines to containerised inference APIs serving enterprise workloads. Targeting high-performance engineering roles at top-tier tech and quant firms.
+  </p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num"><span class="accent2">70</span>%</span>
+      <span class="stat-label">Manual work cut</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num"><span class="accent">2</span>+</span>
+      <span class="stat-label">Years in prod AI</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num"><span class="accent2">5</span></span>
+      <span class="stat-label">Shipped systems</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">GATE</span>
+      <span class="stat-label">CS + DA qualified</span>
+    </div>
+  </div>
+
+  <div class="hero-actions">
+    <a href="#projects" class="btn btn-primary">View projects</a>
+    <a href="mailto:smn2219@gmail.com" class="btn btn-secondary">smn2219@gmail.com</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title">About</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="fade-up">
+    <div class="about-grid" style="margin-bottom:1.5rem">
+      <div class="about-cell">
+        <div class="about-cell-label">Current role</div>
+        <div class="about-cell-value">Associate Software Engineer<br><span style="color:var(--muted);font-size:13px">Crave Technologies, Pune</span></div>
+      </div>
+      <div class="about-cell">
+        <div class="about-cell-label">Education</div>
+        <div class="about-cell-value">B.Tech Computer Science<br><span style="color:var(--muted);font-size:13px">GCoEA, 2023</span></div>
+      </div>
+      <div class="about-cell">
+        <div class="about-cell-label">Focus areas</div>
+        <div class="about-cell-value">LLM Systems · RAG · MLOps<br><span style="color:var(--muted);font-size:13px">SAP BTP · Cloud AI</span></div>
+      </div>
+      <div class="about-cell">
+        <div class="about-cell-label">Target roles</div>
+        <div class="about-cell-value" style="color:var(--accent)">FAANG · Quant Firms<br><span style="font-size:13px">AI/ML Engineer · Backend</span></div>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>
+        I'm a software engineer who specialises in shipping <strong>intelligent, production-grade AI systems</strong>. In the last two years at Crave Technologies I've built RAG pipelines, LLM-powered code migration tools, and containerised inference services — systems that run in real enterprise environments and handle real-world load.
+      </p>
+      <p>
+        My interest is in the engineering behind AI at scale: <strong>latency-sensitive retrieval, robust model serving, and the infrastructure that makes ML actually reliable</strong>. The kind of problems FAANG infra teams and quant firms care about deeply.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title">Projects</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="fade-up" style="display:flex;flex-direction:column;gap:12px">
+
+    <a href="#" class="project-card">
+      <div class="project-top">
+        <span class="project-title">Java → Groovy Converter</span>
+        <span class="project-period">Mar 2025 – present</span>
+      </div>
+      <div class="project-impact">↳ 70% reduction in manual migration workload</div>
+      <p class="project-desc">LLM-powered code translation pipeline that migrates SAP PO/PI Java mappings to Groovy scripts for SAP CPI. Built an automated validation framework with error detection, retry logic, and CI-based testing — removing the need for human review on standard migrations.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">LLMs</span><span class="tag">Pandas</span><span class="tag">SAP APIs</span><span class="tag">CI/CD</span>
+      </div>
+    </a>
+
+    <a href="#" class="project-card">
+      <div class="project-top">
+        <span class="project-title">Lexmark Contract RAG Pipeline</span>
+        <span class="project-period">Jun 2024 – Dec 2024</span>
+      </div>
+      <div class="project-impact">↳ Optimised retrieval latency for legal document search at scale</div>
+      <p class="project-desc">End-to-end RAG system for legal document review: PDF ingestion → OCR → semantic chunking → embedding → vector storage in SAP HANA. Developed Flask inference APIs backed by Azure OpenAI for sub-second semantic search and structured metadata extraction.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">Azure OpenAI</span><span class="tag">SAP HANA</span><span class="tag">OCR</span><span class="tag">Flask</span><span class="tag">Vector DB</span>
+      </div>
+    </a>
+
+    <a href="#" class="project-card">
+      <div class="project-top">
+        <span class="project-title">IntegrateHub — AI Migration Platform</span>
+        <span class="project-period">Jun 2025 – present</span>
+      </div>
+      <div class="project-impact">↳ Modular microservice platform automating enterprise SAP/Boomi migrations</div>
+      <p class="project-desc">Contributed to a modular platform automating SAP and Dell Boomi migration workflows. Built Flask microservices for metadata extraction, transformation logic generation, and CPI artifact deployment. Containerised with Docker + Gunicorn on SAP BTP Cloud Foundry with LLM-powered code conversion modules.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Docker</span><span class="tag">Flask</span><span class="tag">SAP CPI</span><span class="tag">Cloud Foundry</span><span class="tag">Azure OpenAI</span><span class="tag">Gunicorn</span>
+      </div>
+    </a>
+
+    <a href="#" class="project-card">
+      <div class="project-top">
+        <span class="project-title">Predictive Maintenance — Time-Series ML</span>
+        <span class="project-period">Dec 2023 – May 2024</span>
+      </div>
+      <div class="project-impact">↳ Early fault detection reducing unplanned industrial downtime</div>
+      <p class="project-desc">Supervised and time-series ML models for industrial anomaly detection using FFT, spectrograms, and MFCC audio features. Containerised training and inference pipelines with Docker. Automated retraining workflows with evaluation metrics to maintain model quality in production.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Docker</span><span class="tag">FFT / MFCC</span><span class="tag">Time-series</span><span class="tag">SAP Analytics Cloud</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">Skills</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="fade-up">
+    <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
+
+      <div class="skills-row">
+        <div class="skills-cat">Languages</div>
+        <div class="skills-items">
+          <span class="skill-chip hot">Python</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">Java</span>
+          <span class="skill-chip">C / C++</span>
+        </div>
+      </div>
+
+      <div class="skills-row">
+        <div class="skills-cat">AI / ML</div>
+        <div class="skills-items">
+          <span class="skill-chip hot">LLMs</span>
+          <span class="skill-chip hot">RAG Pipelines</span>
+          <span class="skill-chip hot">LangChain</span>
+          <span class="skill-chip">TensorFlow</span>
+          <span class="skill-chip">Scikit-learn</span>
+          <span class="skill-chip">NLP</span>
+          <span class="skill-chip">OCR</span>
+        </div>
+      </div>
+
+      <div class="skills-row">
+        <div class="skills-cat">Cloud & Infra</div>
+        <div class="skills-items">
+          <span class="skill-chip hot">Docker</span>
+          <span class="skill-chip">Kubernetes</span>
+          <span class="skill-chip">AWS (S3, ECS)</span>
+          <span class="skill-chip">Azure OpenAI</span>
+          <span class="skill-chip">SAP BTP</span>
+          <span class="skill-chip">Cloud Foundry</span>
+        </div>
+      </div>
+
+      <div class="skills-row">
+        <div class="skills-cat">APIs & Data</div>
+        <div class="skills-items">
+          <span class="skill-chip hot">FastAPI</span>
+          <span class="skill-chip hot">Flask</span>
+          <span class="skill-chip">REST</span>
+          <span class="skill-chip">Pandas</span>
+          <span class="skill-chip">NumPy</span>
+          <span class="skill-chip">SAP HANA</span>
+          <span class="skill-chip">Vector DBs</span>
+        </div>
+      </div>
+
+      <div class="skills-row" style="border-bottom:none">
+        <div class="skills-cat">MLOps</div>
+        <div class="skills-items">
+          <span class="skill-chip">CI/CD</span>
+          <span class="skill-chip">Model Evaluation</span>
+          <span class="skill-chip">Reproducible Pipelines</span>
+          <span class="skill-chip">Git</span>
+          <span class="skill-chip">Gunicorn</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CODING PROFILES -->
+<section id="profiles" class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">Coding Profiles & Writing</span>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- CP Stats -->
+  <div class="fade-up" style="margin-bottom:12px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px">
+
+      <!-- LeetCode -->
+      <a href="https://leetcode.com/u/7swap/" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:32px;height:32px;border-radius:6px;background:rgba(255,161,22,0.12);border:1px solid rgba(255,161,22,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:#FFA116;font-weight:500">LC</div>
+            <span style="font-size:14px;font-weight:500;color:var(--text)">LeetCode</span>
+          </div>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">7swap ↗</span>
+        </div>
+        <div style="display:flex;gap:1.5rem;margin-bottom:1rem">
+          <div>
+            <div style="font-family:var(--mono);font-size:26px;font-weight:500;color:#FFA116;line-height:1">700<span style="font-size:14px">+</span></div>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px">Problems solved</div>
+          </div>
+          <div>
+            <div style="font-family:var(--mono);font-size:26px;font-weight:500;color:var(--accent2);line-height:1">Top <span style="font-size:16px">5%</span></div>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px">Global rank</div>
+          </div>
+        </div>
+        <!-- Difficulty bar -->
+        <div style="display:flex;gap:6px;margin-bottom:6px">
+          <span style="font-family:var(--mono);font-size:10px;color:#00B8A3;background:rgba(0,184,163,0.1);border:1px solid rgba(0,184,163,0.2);padding:2px 8px;border-radius:3px">Easy</span>
+          <span style="font-family:var(--mono);font-size:10px;color:#FFC01E;background:rgba(255,192,30,0.1);border:1px solid rgba(255,192,30,0.2);padding:2px 8px;border-radius:3px">Medium</span>
+          <span style="font-family:var(--mono);font-size:10px;color:#EF4743;background:rgba(239,71,67,0.1);border:1px solid rgba(239,71,67,0.2);padding:2px 8px;border-radius:3px">Hard</span>
+        </div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted)">Strong in arrays, graphs, DP, system design</div>
+      </a>
+
+     <!-- CodeChef -->
+      <a href="https://www.codechef.com/users/swap2219" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block;border-left:1px solid var(--border)" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:32px;height:32px;border-radius:6px;background:rgba(107,183,86,0.12);border:1px solid rgba(107,183,86,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:#6BB756;font-weight:500">CC</div>
+            <span style="font-size:14px;font-weight:500;color:var(--text)">CodeChef</span>
+          </div>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">swap2219 ↗</span>
+        </div>
+        <div style="margin-bottom:1rem">
+          <div style="font-family:var(--mono);font-size:26px;font-weight:500;color:#6BB756;line-height:1">Strong</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px">Competitive rating</div>
+        </div>
+        <div style="display:flex;gap:6px;margin-bottom:6px">
+          <span style="font-family:var(--mono);font-size:10px;color:#6BB756;background:rgba(107,183,86,0.1);border:1px solid rgba(107,183,86,0.2);padding:2px 8px;border-radius:3px">Contests</span>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--accent);background:rgba(123,111,255,0.1);border:1px solid rgba(123,111,255,0.2);padding:2px 8px;border-radius:3px">Long Challenge</span>
+        </div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted)">Swapnil Nangare · swap2219</div>
+      </a>
+ 
+    </div>
+    
+    <!-- GitHub + Medium row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden">
+
+      <!-- GitHub -->
+      <a href="https://github.com/7smn2219" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:32px;height:32px;border-radius:6px;background:rgba(232,232,240,0.08);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--text);font-weight:500">GH</div>
+            <span style="font-size:14px;font-weight:500;color:var(--text)">GitHub</span>
+          </div>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">7smn2219 ↗</span>
+        </div>
+        <div style="margin-bottom:0.75rem">
+          <div style="font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.6">Personal · AI/ML projects · OSS</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:10px;padding:4px 10px;background:rgba(239,71,67,0.08);border:1px solid rgba(239,71,67,0.15);border-radius:4px;color:#EF4743;display:inline-block">⚠ Push commits daily</div>
+      </a>
+
+      <!-- Medium -->
+      <a href="https://medium.com/@7smn2219" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block;border-left:1px solid var(--border)" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:32px;height:32px;border-radius:6px;background:rgba(232,232,240,0.08);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;color:var(--text);font-weight:500">M</div>
+            <span style="font-size:14px;font-weight:500;color:var(--text)">Medium</span>
+          </div>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">@7smn2219 ↗</span>
+        </div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:0.75rem">Latest: "From Prompts to Production: GenAI with Google Cloud"</div>
+        <div style="font-family:var(--mono);font-size:10px;padding:4px 10px;background:rgba(0,212,170,0.08);border:1px solid rgba(0,212,170,0.15);border-radius:4px;color:var(--accent2);display:inline-block">✦ Write more — high signal</div>
+      </a>
+ 
+    </div>
+  </div>
+
+  <!-- Currently section -->
+  <div class="fade-up" style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    <div style="background:var(--surface);padding:1rem 1.5rem;border-bottom:1px solid var(--border)">
+      <span style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase">Currently</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+      <div style="background:var(--surface2);padding:1.25rem">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Learning</div>
+        <div style="font-size:13px;color:var(--text);line-height:1.6">System design for distributed ML · Kubernetes deep-dive · Advanced DSA patterns</div>
+      </div>
+      <div style="background:var(--surface2);padding:1.25rem;border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Building</div>
+        <div style="font-size:13px;color:var(--text);line-height:1.6">Open-source RAG toolkit · IntegrateHub platform · LeetCode streak</div>
+      </div>
+      <div style="background:var(--surface2);padding:1.25rem;border-left:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:10px;color:#FFA116;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Targeting</div>
+        <div style="font-size:13px;color:var(--text);line-height:1.6">Google · Meta · Amazon · Jane Street · Two Sigma · Citadel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title">Certifications & Awards</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-list fade-up">
+    <div class="cert-item">
+      <span class="cert-name">GATE Qualified — CS (367) & Data Analytics (381)</span>
+      <span class="cert-org">IIT / IISc · 2024</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-name">Google Gen AI Exchange — Certificate of Completion</span>
+      <span class="cert-org">Google / Hack2Skill · 2024</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-name">Generative AI with AWS</span>
+      <span class="cert-org">Udacity · 2024</span>
+    </div>
+    <div class="cert-item">
+      <span class="cert-name">Kaggle: ML, Deep Learning, Data Viz, Python, SQL</span>
+      <span class="cert-org">Kaggle · 2023</span>
+    </div>
+    <div class="cert-item" style="border-bottom:none">
+      <span class="cert-name">2nd Rank — Ode-to-Code (Solo & Team)</span>
+      <span class="cert-org">GCoEA · 2022</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section" style="padding-top:0">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <span class="section-title">Contact</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="fade-up">
+    <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem;max-width:500px">
+      Actively looking for AI/ML engineering roles at FAANG or quant firms. Open to full-time positions, contract work, or technical conversations.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:smn2219@gmail.com" class="contact-link">
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-value">smn2219@gmail.com</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="tel:+17218977106" class="contact-link">
+        <span class="contact-link-label">Phone</span>
+        <span class="contact-link-value">721-897-7106</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="https://linkedin.com/in/swapnil-nangare" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-value">linkedin.com/in/swapnil-nangare</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="https://github.com/7smn2219" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">GitHub</span>
+        <span class="contact-link-value">github.com/7smn2219</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <span class="footer-note">Swapnil Nangare · Pune, IN</span>
+  <span class="footer-note" style="color:var(--accent)">Open to relocation</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -6,977 +6,1016 @@
 <title>Swapnil Nangare — AI/ML Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root{
-  --bg:#0A0A0F;
-  --surface:#111118;
-  --surface2:#16161F;
-  --border:#1E1E2E;
-  --border2:#2A2A3E;
-  --text:#E8E8F0;
-  --muted:#6B6B88;
-  --faint:#2A2A3A;
-  --accent:#7B6FFF;
-  --accent2:#00D4AA;
-  --mono:'IBM Plex Mono',monospace;
+:root {
+  --bg: #F8F7F4;
+  --surface: #FFFFFF;
+  --surface2: #F2F1EE;
+  --border: #E4E2DC;
+  --text: #18181A;
+  --muted: #6B6B6E;
+  --faint: #ECEAE5;
+  --accent: #18181A;
+  --mono: 'DM Mono', monospace;
 }
 
-html{scroll-behavior:smooth}
+html { scroll-behavior: smooth; }
 
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  font-size:15px;
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* GRID BACKGROUND */
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(123,111,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(123,111,255,0.03) 1px, transparent 1px);
-  background-size:48px 48px;
-  pointer-events:none;
-  z-index:0;
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(248, 247, 244, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* NAV */
-nav{
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:100;
-  background:rgba(10,10,15,0.85);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  padding:0 2.5rem;
-  height:56px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.02em;
 }
 
-.nav-logo{
-  font-family:var(--mono);
-  font-size:13px;
-  color:var(--accent);
-  text-decoration:none;
-  letter-spacing:0.05em;
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
 }
 
-.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a:hover { color: var(--text); }
 
-.nav-links a{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--muted);
-  text-decoration:none;
-  letter-spacing:0.05em;
-  transition:color 0.2s;
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.nav-links a:hover{color:var(--text)}
-
-/* WRAPPER */
-.wrap{
-  max-width:740px;
-  margin:0 auto;
-  padding:0 2rem;
-  position:relative;
-  z-index:1;
+#hero {
+  padding-top: 128px;
+  padding-bottom: 96px;
 }
 
-/* HERO */
-#hero{
-  padding-top:130px;
-  padding-bottom:100px;
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
-.hero-tag{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--accent2);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  margin-bottom:2rem;
+.hero-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #3DB87A;
+  animation: pulse 2.5s ease-in-out infinite;
 }
 
-.hero-tag::before{
-  content:'';
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--accent2);
-  animation:pulse 2s ease-in-out infinite;
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
 }
 
-@keyframes pulse{
-  0%,100%{opacity:1;transform:scale(1)}
-  50%{opacity:0.4;transform:scale(0.8)}
+.hero-name {
+  font-family: var(--mono);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 1rem;
 }
 
-h1{
-  font-size:clamp(2.4rem,5vw,3.6rem);
-  font-weight:300;
-  letter-spacing:-0.03em;
-  line-height:1.1;
-  margin-bottom:2rem;
-  color:var(--text);
+.hero-role {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  margin-bottom: 2rem;
 }
 
-h1 .highlight{
-  font-weight:500;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
+.hero-bio {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
 }
 
-.hero-sub{
-  font-size:16px;
-  color:var(--muted);
-  max-width:540px;
-  line-height:1.8;
-  margin-bottom:3rem;
+.hero-bio strong { color: var(--text); font-weight: 500; }
+
+.hero-stats {
+  display: flex;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  width: fit-content;
 }
 
-.hero-sub strong{color:var(--text);font-weight:500}
-
-.hero-stats{
-  display:flex;
-  gap:0;
-  margin-bottom:3rem;
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
-  width:fit-content;
+.stat {
+  padding: 0.9rem 1.6rem;
+  border-right: 1px solid var(--border);
+  text-align: center;
+  background: var(--surface);
 }
 
-.stat{
-  padding:1rem 1.75rem;
-  border-right:1px solid var(--border);
-  text-align:center;
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  display: block;
+  line-height: 1.2;
 }
 
-.stat:last-child{border-right:none}
-
-.stat-num{
-  font-family:var(--mono);
-  font-size:22px;
-  font-weight:500;
-  color:var(--text);
-  display:block;
+.stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 3px;
 }
 
-.stat-num .accent{color:var(--accent)}
-.stat-num .accent2{color:var(--accent2)}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-.stat-label{
-  font-family:var(--mono);
-  font-size:10px;
-  color:var(--muted);
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  display:block;
-  margin-top:3px;
+.btn {
+  display: inline-block;
+  padding: 9px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.15s;
+  letter-spacing: 0.01em;
 }
 
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary { background: var(--text); color: #fff; }
+.btn-primary:hover { background: #333; }
+.btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--faint); }
 
-.btn{
-  display:inline-block;
-  padding:10px 22px;
-  font-family:var(--mono);
-  font-size:12px;
-  font-weight:500;
-  border-radius:6px;
-  text-decoration:none;
-  letter-spacing:0.04em;
-  transition:all 0.2s;
-  cursor:pointer;
-  border:none;
+.section { padding: 72px 0; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 2.5rem;
 }
 
-.btn-primary{
-  background:var(--accent);
-  color:#fff;
+.section-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
 }
 
-.btn-primary:hover{background:#9088ff;transform:translateY(-1px)}
-
-.btn-secondary{
-  background:transparent;
-  color:var(--muted);
-  border:1px solid var(--border2);
+.section-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.btn-secondary:hover{color:var(--text);border-color:var(--muted)}
+.section-line { flex: 1; height: 1px; background: var(--border); }
 
-/* SECTION */
-.section{padding:80px 0}
-
-.section-header{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  margin-bottom:3rem;
+.about-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
 }
 
-.section-num{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--accent);
-  letter-spacing:0.1em;
+.meta-cell {
+  background: var(--surface);
+  padding: 1.1rem 1.25rem;
 }
 
-.section-title{
-  font-size:13px;
-  font-weight:500;
-  color:var(--text);
-  letter-spacing:0.08em;
-  text-transform:uppercase;
+.meta-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
-.section-line{flex:1;height:1px;background:var(--border)}
-
-/* ABOUT */
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
-  margin-bottom:1.5rem;
+.meta-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
 }
 
-.about-cell{
-  background:var(--surface);
-  padding:1.5rem;
+.meta-value small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 1px;
 }
 
-.about-cell-label{
-  font-family:var(--mono);
-  font-size:10px;
-  color:var(--muted);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  margin-bottom:0.75rem;
+.about-body { font-size: 15px; color: var(--muted); line-height: 1.85; }
+.about-body p + p { margin-top: 1rem; }
+.about-body strong { color: var(--text); font-weight: 500; }
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.about-cell-value{font-size:14px;color:var(--text);line-height:1.6}
-
-.about-body{
-  font-size:15px;
-  color:var(--muted);
-  line-height:1.85;
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color 0.15s, background 0.15s;
+  position: relative;
+  overflow: hidden;
 }
 
-.about-body strong{color:var(--text);font-weight:500}
-.about-body p+p{margin-top:1rem}
-
-/* PROJECTS */
-.project-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:1.75rem;
-  margin-bottom:1px;
-  transition:border-color 0.2s,background 0.2s;
-  text-decoration:none;
-  color:inherit;
-  display:block;
-  position:relative;
-  overflow:hidden;
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
 }
 
-.project-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  opacity:0;
-  transition:opacity 0.2s;
+.card:hover { border-color: #ccc; background: var(--surface); }
+.card:hover::after { transform: scaleX(1); }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
 }
 
-.project-card:hover{
-  border-color:var(--border2);
-  background:var(--surface2);
+.card-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
 }
 
-.project-card:hover::before{opacity:1}
-
-.project-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  margin-bottom:0.75rem;
+.card-period {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  flex-shrink: 0;
 }
 
-.project-title{
-  font-size:15px;
-  font-weight:500;
-  color:var(--text);
+.card-impact {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  margin-bottom: 0.6rem;
 }
 
-.project-period{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--muted);
-  letter-spacing:0.04em;
-  flex-shrink:0;
-  margin-left:1rem;
+.card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
 }
 
-.project-impact{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--accent2);
-  margin-bottom:0.75rem;
-  letter-spacing:0.02em;
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--faint);
+  padding: 3px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
 }
 
-.project-desc{
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.7;
-  margin-bottom:1.25rem;
+.skills-table {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.project-tags{display:flex;flex-wrap:wrap;gap:6px}
-
-.tag{
-  font-family:var(--mono);
-  font-size:10px;
-  color:var(--muted);
-  border:1px solid var(--border2);
-  padding:3px 8px;
-  border-radius:4px;
-  letter-spacing:0.04em;
-  transition:color 0.2s,border-color 0.2s;
+.skills-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  border-bottom: 1px solid var(--border);
 }
 
-.project-card:hover .tag{color:var(--text);border-color:var(--faint)}
+.skills-row:last-child { border-bottom: none; }
 
-/* SKILLS */
-.skills-table{
-  width:100%;
-  border-collapse:collapse;
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
+.skills-cat {
+  background: var(--surface);
+  padding: 1rem 1.25rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
 }
 
-.skills-row{
-  display:grid;
-  grid-template-columns:160px 1fr;
-  border-bottom:1px solid var(--border);
+.skills-items {
+  background: var(--surface2);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
 }
 
-.skills-row:last-child{border-bottom:none}
-
-.skills-cat{
-  background:var(--surface);
-  padding:1.1rem 1.5rem;
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--muted);
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  display:flex;
-  align-items:center;
-  border-right:1px solid var(--border);
+.chip {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 4px;
 }
 
-.skills-items{
-  background:var(--surface2);
-  padding:1.1rem 1.5rem;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  align-items:center;
+.chip.strong {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
 }
 
-.skill-chip{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--text);
-  padding:3px 10px;
-  border-radius:4px;
-  background:var(--faint);
-  letter-spacing:0.02em;
+.profiles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.skill-chip.hot{
-  color:var(--accent);
-  background:rgba(123,111,255,0.1);
-  border:1px solid rgba(123,111,255,0.2);
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color 0.15s;
 }
 
-/* CERTS */
-.cert-list{
-  display:flex;
-  flex-direction:column;
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
+.profile-card:hover { border-color: #bbb; }
+
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9rem;
 }
 
-.cert-item{
-  background:var(--surface);
-  padding:1rem 1.5rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:1rem;
+.profile-name-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
 }
 
-.cert-name{font-size:13px;font-weight:500;color:var(--text)}
-.cert-org{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--accent2);
-  letter-spacing:0.04em;
-  flex-shrink:0;
+.profile-icon {
+  width: 30px; height: 30px;
+  border-radius: 6px;
+  background: var(--faint);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text);
 }
 
-/* CONTACT */
-.contact-links{
-  display:flex;
-  flex-direction:column;
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
+.profile-title { font-size: 14px; font-weight: 500; color: var(--text); }
+
+.profile-handle {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
 }
 
-.contact-link{
-  background:var(--surface);
-  padding:1.1rem 1.5rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  text-decoration:none;
-  color:var(--text);
-  transition:background 0.15s;
-  gap:1rem;
+.profile-stat-num {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 3px;
 }
 
-.contact-link:hover{background:var(--surface2)}
-
-.contact-link-label{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--muted);
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-  min-width:80px;
+.profile-stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
-.contact-link-value{
-  font-family:var(--mono);
-  font-size:12px;
-  color:var(--text);
+.profile-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
 }
 
-.contact-arrow{color:var(--border2);transition:color 0.15s,transform 0.15s;font-size:14px}
-.contact-link:hover .contact-arrow{color:var(--accent);transform:translate(2px,-2px)}
-
-/* FOOTER */
-footer{
-  border-top:1px solid var(--border);
-  padding:2rem 2.5rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:relative;
-  z-index:1;
+.profiles-row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.footer-note{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--muted);
-  letter-spacing:0.04em;
+.currently {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* ANIMATIONS */
-.fade-up{
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity 0.6s ease,transform 0.6s ease;
+.currently-header {
+  background: var(--surface);
+  padding: 0.8rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.fade-up.visible{opacity:1;transform:none}
-
-/* TERMINAL CURSOR */
-.cursor{
-  display:inline-block;
-  width:2px;height:1em;
-  background:var(--accent);
-  vertical-align:text-bottom;
-  margin-left:2px;
-  animation:blink 1s step-end infinite;
+.currently-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-
-@media(max-width:600px){
-  nav{padding:0 1rem}
-  .nav-links{gap:1.25rem}
-  .wrap{padding:0 1.25rem}
-  #hero{padding-top:90px;padding-bottom:60px}
-  .hero-stats{flex-direction:column;width:100%}
-  .stat{border-right:none;border-bottom:1px solid var(--border)}
-  .stat:last-child{border-bottom:none}
-  .about-grid{grid-template-columns:1fr}
-  .skills-row{grid-template-columns:1fr}
-  .skills-cat{border-right:none;border-bottom:1px solid var(--border)}
-  footer{flex-direction:column;gap:0.5rem;text-align:center}
+.currently-cell {
+  background: var(--surface2);
+  padding: 1.1rem 1.25rem;
+  border-right: 1px solid var(--border);
 }
 
-@media(prefers-reduced-motion:reduce){
-  .fade-up{opacity:1;transform:none;transition:none}
-  .hero-tag::before{animation:none}
-  .cursor{animation:none}
+.currently-cell:last-child { border-right: none; }
+
+.currently-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.currently-value { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+.cert-list {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cert-item {
+  background: var(--surface);
+  padding: 0.95rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cert-item:last-child { border-bottom: none; }
+.cert-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.cert-org { font-family: var(--mono); font-size: 11px; color: var(--muted); flex-shrink: 0; }
+
+.contact-list {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-item {
+  background: var(--surface);
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+  gap: 1rem;
+}
+
+.contact-item:last-child { border-bottom: none; }
+.contact-item:hover { background: var(--faint); }
+
+.contact-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: 90px;
+}
+
+.contact-value { font-size: 13px; color: var(--text); }
+.contact-arrow { color: var(--border); font-size: 14px; transition: color 0.15s, transform 0.15s; }
+.contact-item:hover .contact-arrow { color: var(--text); transform: translate(2px, -2px); }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-up.visible { opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  nav { padding: 0 1.25rem; }
+  .nav-links { gap: 1.25rem; }
+  .wrap { padding: 0 1.25rem; }
+  #hero { padding-top: 90px; padding-bottom: 64px; }
+  .hero-stats { flex-direction: column; width: 100%; }
+  .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat:last-child { border-bottom: none; }
+  .about-meta { grid-template-columns: 1fr 1fr; }
+  .profiles-grid { grid-template-columns: 1fr; }
+  .profiles-row3 { grid-template-columns: 1fr; }
+  .currently-grid { grid-template-columns: 1fr; }
+  .currently-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .currently-cell:last-child { border-bottom: none; }
+  .skills-row { grid-template-columns: 1fr; }
+  .skills-cat { border-right: none; border-bottom: 1px solid var(--border); }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; transition: none; }
+  .hero-status::before { animation: none; }
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#hero" class="nav-logo">swapnil_nangare.py</a>
+  <a href="#hero" class="nav-logo">SN</a>
   <ul class="nav-links">
-    <li><a href="#about">about</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#skills">skills</a></li>
-    <li><a href="#profiles">profiles</a></li>
-    <li><a href="#contact">contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#profiles">Profiles</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="wrap">
-<section id="hero">
-  <div class="hero-tag">Available for opportunities</div>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:500;letter-spacing:-0.03em;color:var(--text);line-height:1;margin-bottom:1rem">Swapnil<br>Nangare</div>
-  <h1 style="font-size:clamp(1rem,2.5vw,1.4rem);font-weight:300;letter-spacing:0.01em;color:var(--muted);margin-bottom:2rem">
-    AI Systems Engineer &nbsp;&middot;&nbsp; <span class="highlight" style="font-weight:400">LLMs. RAG. Scale.</span>
-  </h1>
-  <p class="hero-sub">
-    I build <strong>production AI systems</strong> — from LLM-powered automation pipelines to containerised inference APIs serving enterprise workloads. Targeting high-performance engineering roles at top-tier tech and quant firms.
-  </p>
 
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num"><span class="accent2">70</span>%</span>
-      <span class="stat-label">Manual work cut</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num"><span class="accent">2</span>+</span>
-      <span class="stat-label">Years in prod AI</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num"><span class="accent2">5</span></span>
-      <span class="stat-label">Shipped systems</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">GATE</span>
-      <span class="stat-label">CS + DA qualified</span>
-    </div>
-  </div>
-
-  <div class="hero-actions">
-    <a href="#projects" class="btn btn-primary">View projects</a>
-    <a href="mailto:smn2219@gmail.com" class="btn btn-secondary">smn2219@gmail.com</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <span class="section-title">About</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="fade-up">
-    <div class="about-grid" style="margin-bottom:1.5rem">
-      <div class="about-cell">
-        <div class="about-cell-label">Current role</div>
-        <div class="about-cell-value">Associate Software Engineer<br><span style="color:var(--muted);font-size:13px">Crave Technologies, Pune</span></div>
+  <section id="hero">
+    <div class="hero-status">Available for opportunities</div>
+    <div class="hero-name">Swapnil<br>Nangare</div>
+    <div class="hero-role">AI/ML Engineer &nbsp;·&nbsp; LLMs &nbsp;·&nbsp; RAG &nbsp;·&nbsp; MLOps</div>
+    <p class="hero-bio">
+      I build <strong>production AI systems</strong> — LLM-powered automation, RAG pipelines, and containerised inference APIs. Targeting high-performance engineering roles at top-tier tech and quant firms.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">700+</span>
+        <span class="stat-label">LC solved</span>
       </div>
-      <div class="about-cell">
-        <div class="about-cell-label">Education</div>
-        <div class="about-cell-value">B.Tech Computer Science<br><span style="color:var(--muted);font-size:13px">GCoEA, 2023</span></div>
+      <div class="stat">
+        <span class="stat-num">70%</span>
+        <span class="stat-label">Work automated</span>
       </div>
-      <div class="about-cell">
-        <div class="about-cell-label">Focus areas</div>
-        <div class="about-cell-value">LLM Systems · RAG · MLOps<br><span style="color:var(--muted);font-size:13px">SAP BTP · Cloud AI</span></div>
+      <div class="stat">
+        <span class="stat-num">2+</span>
+        <span class="stat-label">Yrs prod AI</span>
       </div>
-      <div class="about-cell">
-        <div class="about-cell-label">Target roles</div>
-        <div class="about-cell-value" style="color:var(--accent)">FAANG · Quant Firms<br><span style="font-size:13px">AI/ML Engineer · Backend</span></div>
+      <div class="stat">
+        <span class="stat-num">GATE</span>
+        <span class="stat-label">CS + DA</span>
       </div>
     </div>
-    <div class="about-body">
-      <p>
-        I'm a software engineer who specialises in shipping <strong>intelligent, production-grade AI systems</strong>. In the last two years at Crave Technologies I've built RAG pipelines, LLM-powered code migration tools, and containerised inference services — systems that run in real enterprise environments and handle real-world load.
-      </p>
-      <p>
-        My interest is in the engineering behind AI at scale: <strong>latency-sensitive retrieval, robust model serving, and the infrastructure that makes ML actually reliable</strong>. The kind of problems FAANG infra teams and quant firms care about deeply.
-      </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View projects</a>
+      <a href="#contact" class="btn btn-secondary">Get in touch</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <span class="section-title">Projects</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="fade-up" style="display:flex;flex-direction:column;gap:12px">
+  <section id="about" class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">About</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="fade-up">
+      <div class="about-meta">
+        <div class="meta-cell">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">Assoc. Software Engineer<small>Crave Technologies, Pune</small></div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-label">Education</div>
+          <div class="meta-value">B.Tech Computer Science<small>GCoEA · 2023</small></div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-label">Focus</div>
+          <div class="meta-value">LLMs · RAG · MLOps<small>SAP BTP · Cloud AI</small></div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-label">Target</div>
+          <div class="meta-value">FAANG · Quant Firms<small>AI/ML · Backend</small></div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>
+          I'm a software engineer with 2+ years of experience shipping <strong>intelligent, production-grade AI systems</strong>. At Crave Technologies I've built RAG pipelines, LLM-powered code migration tools, and containerised inference services that run in live enterprise environments.
+        </p>
+        <p>
+          My focus is on the engineering behind AI at scale — <strong>latency-sensitive retrieval, reliable model serving, and the infrastructure that makes ML actually work in production</strong>. GATE qualified in both Computer Science and Data Analytics.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <a href="#" class="project-card">
-      <div class="project-top">
-        <span class="project-title">Java → Groovy Converter</span>
-        <span class="project-period">Mar 2025 – present</span>
-      </div>
-      <div class="project-impact">↳ 70% reduction in manual migration workload</div>
-      <p class="project-desc">LLM-powered code translation pipeline that migrates SAP PO/PI Java mappings to Groovy scripts for SAP CPI. Built an automated validation framework with error detection, retry logic, and CI-based testing — removing the need for human review on standard migrations.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">LLMs</span><span class="tag">Pandas</span><span class="tag">SAP APIs</span><span class="tag">CI/CD</span>
-      </div>
-    </a>
+  <section id="projects" class="section" style="padding-top:0">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Projects</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="card-list fade-up">
 
-    <a href="#" class="project-card">
-      <div class="project-top">
-        <span class="project-title">Lexmark Contract RAG Pipeline</span>
-        <span class="project-period">Jun 2024 – Dec 2024</span>
-      </div>
-      <div class="project-impact">↳ Optimised retrieval latency for legal document search at scale</div>
-      <p class="project-desc">End-to-end RAG system for legal document review: PDF ingestion → OCR → semantic chunking → embedding → vector storage in SAP HANA. Developed Flask inference APIs backed by Azure OpenAI for sub-second semantic search and structured metadata extraction.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">Azure OpenAI</span><span class="tag">SAP HANA</span><span class="tag">OCR</span><span class="tag">Flask</span><span class="tag">Vector DB</span>
-      </div>
-    </a>
+      <a href="#" class="card">
+        <div class="card-top">
+          <span class="card-title">Java → Groovy Converter</span>
+          <span class="card-period">Mar 2025 – present</span>
+        </div>
+        <div class="card-impact">↳ 70% reduction in manual migration workload</div>
+        <p class="card-desc">LLM-powered pipeline migrating SAP PO/PI Java mappings to Groovy scripts for SAP CPI. Automated validation framework with error detection, retry logic, and CI-based testing — removing human review on standard migrations.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">LLMs</span><span class="tag">Pandas</span><span class="tag">SAP APIs</span><span class="tag">CI/CD</span>
+        </div>
+      </a>
 
-    <a href="#" class="project-card">
-      <div class="project-top">
-        <span class="project-title">IntegrateHub — AI Migration Platform</span>
-        <span class="project-period">Jun 2025 – present</span>
-      </div>
-      <div class="project-impact">↳ Modular microservice platform automating enterprise SAP/Boomi migrations</div>
-      <p class="project-desc">Contributed to a modular platform automating SAP and Dell Boomi migration workflows. Built Flask microservices for metadata extraction, transformation logic generation, and CPI artifact deployment. Containerised with Docker + Gunicorn on SAP BTP Cloud Foundry with LLM-powered code conversion modules.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">Docker</span><span class="tag">Flask</span><span class="tag">SAP CPI</span><span class="tag">Cloud Foundry</span><span class="tag">Azure OpenAI</span><span class="tag">Gunicorn</span>
-      </div>
-    </a>
+      <a href="#" class="card">
+        <div class="card-top">
+          <span class="card-title">Lexmark Contract RAG Pipeline</span>
+          <span class="card-period">Jun 2024 – Dec 2024</span>
+        </div>
+        <div class="card-impact">↳ Optimised retrieval latency for legal document search at scale</div>
+        <p class="card-desc">End-to-end RAG system for legal document review: PDF ingestion → OCR → semantic chunking → embedding → vector storage in SAP HANA. Flask inference APIs backed by Azure OpenAI for sub-second semantic search and metadata extraction.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">Azure OpenAI</span><span class="tag">SAP HANA</span><span class="tag">OCR</span><span class="tag">Flask</span><span class="tag">Vector DB</span>
+        </div>
+      </a>
 
-    <a href="#" class="project-card">
-      <div class="project-top">
-        <span class="project-title">Predictive Maintenance — Time-Series ML</span>
-        <span class="project-period">Dec 2023 – May 2024</span>
-      </div>
-      <div class="project-impact">↳ Early fault detection reducing unplanned industrial downtime</div>
-      <p class="project-desc">Supervised and time-series ML models for industrial anomaly detection using FFT, spectrograms, and MFCC audio features. Containerised training and inference pipelines with Docker. Automated retraining workflows with evaluation metrics to maintain model quality in production.</p>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Docker</span><span class="tag">FFT / MFCC</span><span class="tag">Time-series</span><span class="tag">SAP Analytics Cloud</span>
-      </div>
-    </a>
+      <a href="#" class="card">
+        <div class="card-top">
+          <span class="card-title">IntegrateHub — AI Migration Platform</span>
+          <span class="card-period">Jun 2025 – present</span>
+        </div>
+        <div class="card-impact">↳ Automates SAP and Dell Boomi migration workflows end-to-end</div>
+        <p class="card-desc">Modular AI-driven platform with Flask microservices for metadata extraction, transformation logic generation, and CPI artifact deployment. Containerised with Docker + Gunicorn on SAP BTP Cloud Foundry with LLM-powered code conversion.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Docker</span><span class="tag">Flask</span><span class="tag">SAP CPI</span><span class="tag">Cloud Foundry</span><span class="tag">Azure OpenAI</span>
+        </div>
+      </a>
 
-  </div>
-</section>
+      <a href="#" class="card">
+        <div class="card-top">
+          <span class="card-title">Predictive Maintenance — Time-Series ML</span>
+          <span class="card-period">Dec 2023 – May 2024</span>
+        </div>
+        <div class="card-impact">↳ Early fault detection reducing unplanned industrial downtime</div>
+        <p class="card-desc">Supervised and time-series ML models for industrial anomaly detection using FFT, spectrograms, and MFCC audio features. Containerised training and inference pipelines with automated retraining workflows.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Docker</span><span class="tag">FFT / MFCC</span><span class="tag">Time-series</span><span class="tag">SAP Analytics Cloud</span>
+        </div>
+      </a>
 
-<!-- SKILLS -->
-<section id="skills" class="section">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <span class="section-title">Skills</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="fade-up">
-    <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
+    </div>
+  </section>
 
+  <section id="skills" class="section" style="padding-top:0">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Skills</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-table fade-up">
       <div class="skills-row">
         <div class="skills-cat">Languages</div>
         <div class="skills-items">
-          <span class="skill-chip hot">Python</span>
-          <span class="skill-chip">SQL</span>
-          <span class="skill-chip">Java</span>
-          <span class="skill-chip">C / C++</span>
+          <span class="chip strong">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Java</span>
+          <span class="chip">C / C++</span>
         </div>
       </div>
-
       <div class="skills-row">
         <div class="skills-cat">AI / ML</div>
         <div class="skills-items">
-          <span class="skill-chip hot">LLMs</span>
-          <span class="skill-chip hot">RAG Pipelines</span>
-          <span class="skill-chip hot">LangChain</span>
-          <span class="skill-chip">TensorFlow</span>
-          <span class="skill-chip">Scikit-learn</span>
-          <span class="skill-chip">NLP</span>
-          <span class="skill-chip">OCR</span>
+          <span class="chip strong">LLMs</span>
+          <span class="chip strong">RAG Pipelines</span>
+          <span class="chip strong">LangChain</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">Scikit-learn</span>
+          <span class="chip">NLP</span>
+          <span class="chip">OCR</span>
         </div>
       </div>
-
       <div class="skills-row">
         <div class="skills-cat">Cloud & Infra</div>
         <div class="skills-items">
-          <span class="skill-chip hot">Docker</span>
-          <span class="skill-chip">Kubernetes</span>
-          <span class="skill-chip">AWS (S3, ECS)</span>
-          <span class="skill-chip">Azure OpenAI</span>
-          <span class="skill-chip">SAP BTP</span>
-          <span class="skill-chip">Cloud Foundry</span>
+          <span class="chip strong">Docker</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">AWS (S3, ECS)</span>
+          <span class="chip">Azure OpenAI</span>
+          <span class="chip">SAP BTP</span>
+          <span class="chip">Cloud Foundry</span>
         </div>
       </div>
-
       <div class="skills-row">
         <div class="skills-cat">APIs & Data</div>
         <div class="skills-items">
-          <span class="skill-chip hot">FastAPI</span>
-          <span class="skill-chip hot">Flask</span>
-          <span class="skill-chip">REST</span>
-          <span class="skill-chip">Pandas</span>
-          <span class="skill-chip">NumPy</span>
-          <span class="skill-chip">SAP HANA</span>
-          <span class="skill-chip">Vector DBs</span>
+          <span class="chip strong">FastAPI</span>
+          <span class="chip strong">Flask</span>
+          <span class="chip">REST</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">SAP HANA</span>
+          <span class="chip">Vector DBs</span>
         </div>
       </div>
-
-      <div class="skills-row" style="border-bottom:none">
+      <div class="skills-row">
         <div class="skills-cat">MLOps</div>
         <div class="skills-items">
-          <span class="skill-chip">CI/CD</span>
-          <span class="skill-chip">Model Evaluation</span>
-          <span class="skill-chip">Reproducible Pipelines</span>
-          <span class="skill-chip">Git</span>
-          <span class="skill-chip">Gunicorn</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">Model Evaluation</span>
+          <span class="chip">Reproducible Pipelines</span>
+          <span class="chip">Git</span>
+          <span class="chip">Gunicorn</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="profiles" class="section" style="padding-top:0">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Profiles & Writing</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="fade-up">
+
+      <div class="profiles-grid" style="margin-bottom:10px">
+
+        <a href="https://leetcode.com/u/7swap/" target="_blank" rel="noopener" class="profile-card">
+          <div class="profile-top">
+            <div class="profile-name-row">
+              <div class="profile-icon">LC</div>
+              <span class="profile-title">LeetCode</span>
+            </div>
+            <span class="profile-handle">7swap ↗</span>
+          </div>
+          <div class="profile-stat-num">700+</div>
+          <div class="profile-stat-label">Problems solved</div>
+          <div class="profile-desc">Top 5% globally · Arrays, Graphs, DP, System Design</div>
+          <div class="tags" style="margin-top:0.75rem">
+            <span class="tag">Easy</span><span class="tag">Medium</span><span class="tag">Hard</span>
+          </div>
+        </a>
+
+        <a href="https://www.codechef.com/users/swap2219" target="_blank" rel="noopener" class="profile-card">
+          <div class="profile-top">
+            <div class="profile-name-row">
+              <div class="profile-icon">CC</div>
+              <span class="profile-title">CodeChef</span>
+            </div>
+            <span class="profile-handle">swap2219 ↗</span>
+          </div>
+          <div class="profile-stat-num">Active</div>
+          <div class="profile-stat-label">Competitive rating</div>
+          <div class="profile-desc">Swapnil Nangare · Contests & Long Challenges</div>
+          <div class="tags" style="margin-top:0.75rem">
+            <span class="tag">Contests</span><span class="tag">Long Challenge</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="profiles-row3">
+
+        <a href="https://github.com/7smn2219" target="_blank" rel="noopener" class="profile-card">
+          <div class="profile-top">
+            <div class="profile-name-row">
+              <div class="profile-icon">GH</div>
+              <span class="profile-title">GitHub</span>
+            </div>
+            <span class="profile-handle">7smn2219 ↗</span>
+          </div>
+          <div class="profile-desc" style="margin-top:0">Personal · AI/ML projects · OSS</div>
+        </a>
+
+        <a href="https://github.com/swapnil-nangare-crave" target="_blank" rel="noopener" class="profile-card">
+          <div class="profile-top">
+            <div class="profile-name-row">
+              <div class="profile-icon">GH</div>
+              <span class="profile-title">GitHub</span>
+            </div>
+            <span class="profile-handle">crave ↗</span>
+          </div>
+          <div class="profile-desc" style="margin-top:0">Work · Enterprise AI · SAP integrations</div>
+        </a>
+
+        <a href="https://medium.com/@7smn2219/from-prompts-to-production-my-hands-on-journey-into-genai-with-google-cloud-5e57e99608fe" target="_blank" rel="noopener" class="profile-card">
+          <div class="profile-top">
+            <div class="profile-name-row">
+              <div class="profile-icon">M</div>
+              <span class="profile-title">Medium</span>
+            </div>
+            <span class="profile-handle">@7smn2219 ↗</span>
+          </div>
+          <div class="profile-desc" style="margin-top:0">From Prompts to Production: GenAI with Google Cloud</div>
+        </a>
+
+      </div>
+
+      <div class="currently">
+        <div class="currently-header">Currently</div>
+        <div class="currently-grid">
+          <div class="currently-cell">
+            <div class="currently-label">Learning</div>
+            <div class="currently-value">Distributed ML system design · Kubernetes · Advanced DSA</div>
+          </div>
+          <div class="currently-cell">
+            <div class="currently-label">Building</div>
+            <div class="currently-value">Open-source RAG toolkit · IntegrateHub platform</div>
+          </div>
+          <div class="currently-cell">
+            <div class="currently-label">Targeting</div>
+            <div class="currently-value">Google · Meta · Amazon · Jane Street · Two Sigma</div>
+          </div>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CODING PROFILES -->
-<section id="profiles" class="section" style="padding-top:0">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <span class="section-title">Coding Profiles & Writing</span>
-    <div class="section-line"></div>
-  </div>
-
-  <!-- CP Stats -->
-  <div class="fade-up" style="margin-bottom:12px">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px">
-
-      <!-- LeetCode -->
-      <a href="https://leetcode.com/u/7swap/" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:32px;height:32px;border-radius:6px;background:rgba(255,161,22,0.12);border:1px solid rgba(255,161,22,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:#FFA116;font-weight:500">LC</div>
-            <span style="font-size:14px;font-weight:500;color:var(--text)">LeetCode</span>
-          </div>
-          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">7swap ↗</span>
-        </div>
-        <div style="display:flex;gap:1.5rem;margin-bottom:1rem">
-          <div>
-            <div style="font-family:var(--mono);font-size:26px;font-weight:500;color:#FFA116;line-height:1">700<span style="font-size:14px">+</span></div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px">Problems solved</div>
-          </div>
-          <div>
-            <div style="font-family:var(--mono);font-size:26px;font-weight:500;color:var(--accent2);line-height:1">Top <span style="font-size:16px">5%</span></div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px">Global rank</div>
-          </div>
-        </div>
-        <!-- Difficulty bar -->
-        <div style="display:flex;gap:6px;margin-bottom:6px">
-          <span style="font-family:var(--mono);font-size:10px;color:#00B8A3;background:rgba(0,184,163,0.1);border:1px solid rgba(0,184,163,0.2);padding:2px 8px;border-radius:3px">Easy</span>
-          <span style="font-family:var(--mono);font-size:10px;color:#FFC01E;background:rgba(255,192,30,0.1);border:1px solid rgba(255,192,30,0.2);padding:2px 8px;border-radius:3px">Medium</span>
-          <span style="font-family:var(--mono);font-size:10px;color:#EF4743;background:rgba(239,71,67,0.1);border:1px solid rgba(239,71,67,0.2);padding:2px 8px;border-radius:3px">Hard</span>
-        </div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--muted)">Strong in arrays, graphs, DP, system design</div>
-      </a>
-
-     <!-- CodeChef -->
-      <a href="https://www.codechef.com/users/swap2219" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block;border-left:1px solid var(--border)" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:32px;height:32px;border-radius:6px;background:rgba(107,183,86,0.12);border:1px solid rgba(107,183,86,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:#6BB756;font-weight:500">CC</div>
-            <span style="font-size:14px;font-weight:500;color:var(--text)">CodeChef</span>
-          </div>
-          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">swap2219 ↗</span>
-        </div>
-        <div style="margin-bottom:1rem">
-          <div style="font-family:var(--mono);font-size:26px;font-weight:500;color:#6BB756;line-height:1">Strong</div>
-          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px">Competitive rating</div>
-        </div>
-        <div style="display:flex;gap:6px;margin-bottom:6px">
-          <span style="font-family:var(--mono);font-size:10px;color:#6BB756;background:rgba(107,183,86,0.1);border:1px solid rgba(107,183,86,0.2);padding:2px 8px;border-radius:3px">Contests</span>
-          <span style="font-family:var(--mono);font-size:10px;color:var(--accent);background:rgba(123,111,255,0.1);border:1px solid rgba(123,111,255,0.2);padding:2px 8px;border-radius:3px">Long Challenge</span>
-        </div>
-        <div style="font-family:var(--mono);font-size:10px;color:var(--muted)">Swapnil Nangare · swap2219</div>
-      </a>
- 
+  <section class="section" style="padding-top:0">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Certifications & Awards</span>
+      <div class="section-line"></div>
     </div>
-    
-    <!-- GitHub + Medium row -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden">
-
-      <!-- GitHub -->
-      <a href="https://github.com/7smn2219" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:32px;height:32px;border-radius:6px;background:rgba(232,232,240,0.08);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--text);font-weight:500">GH</div>
-            <span style="font-size:14px;font-weight:500;color:var(--text)">GitHub</span>
-          </div>
-          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">7smn2219 ↗</span>
-        </div>
-        <div style="margin-bottom:0.75rem">
-          <div style="font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.6">Personal · AI/ML projects · OSS</div>
-        </div>
-        <div style="font-family:var(--mono);font-size:10px;padding:4px 10px;background:rgba(239,71,67,0.08);border:1px solid rgba(239,71,67,0.15);border-radius:4px;color:#EF4743;display:inline-block">⚠ Push commits daily</div>
-      </a>
-
-      <!-- Medium -->
-      <a href="https://medium.com/@7smn2219" target="_blank" rel="noopener" style="background:var(--surface);padding:1.5rem;text-decoration:none;color:inherit;transition:background 0.15s;display:block;border-left:1px solid var(--border)" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:32px;height:32px;border-radius:6px;background:rgba(232,232,240,0.08);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;color:var(--text);font-weight:500">M</div>
-            <span style="font-size:14px;font-weight:500;color:var(--text)">Medium</span>
-          </div>
-          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">@7smn2219 ↗</span>
-        </div>
-        <div style="font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:0.75rem">Latest: "From Prompts to Production: GenAI with Google Cloud"</div>
-        <div style="font-family:var(--mono);font-size:10px;padding:4px 10px;background:rgba(0,212,170,0.08);border:1px solid rgba(0,212,170,0.15);border-radius:4px;color:var(--accent2);display:inline-block">✦ Write more — high signal</div>
-      </a>
- 
-    </div>
-  </div>
-
-  <!-- Currently section -->
-  <div class="fade-up" style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
-    <div style="background:var(--surface);padding:1rem 1.5rem;border-bottom:1px solid var(--border)">
-      <span style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase">Currently</span>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
-      <div style="background:var(--surface2);padding:1.25rem">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Learning</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.6">System design for distributed ML · Kubernetes deep-dive · Advanced DSA patterns</div>
+    <div class="cert-list fade-up">
+      <div class="cert-item">
+        <span class="cert-name">GATE Qualified — CS (367) & Data Analytics (381)</span>
+        <span class="cert-org">IIT / IISc · 2024</span>
       </div>
-      <div style="background:var(--surface2);padding:1.25rem;border-left:1px solid var(--border)">
-        <div style="font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Building</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.6">Open-source RAG toolkit · IntegrateHub platform · LeetCode streak</div>
+      <div class="cert-item">
+        <span class="cert-name">Google Gen AI Exchange — Certificate of Completion</span>
+        <span class="cert-org">Google / Hack2Skill · 2024</span>
       </div>
-      <div style="background:var(--surface2);padding:1.25rem;border-left:1px solid var(--border)">
-        <div style="font-family:var(--mono);font-size:10px;color:#FFA116;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem">Targeting</div>
-        <div style="font-size:13px;color:var(--text);line-height:1.6">Google · Meta · Amazon · Jane Street · Two Sigma · Citadel</div>
+      <div class="cert-item">
+        <span class="cert-name">Generative AI with AWS</span>
+        <span class="cert-org">Udacity · 2024</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Kaggle — ML, Deep Learning, Data Viz, Python, SQL</span>
+        <span class="cert-org">Kaggle · 2023</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">2nd Rank — Ode-to-Code (Solo & Team)</span>
+        <span class="cert-org">GCoEA · 2022</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CERTIFICATIONS -->
-<section class="section" style="padding-top:0">
-  <div class="section-header">
-    <span class="section-num">05</span>
-    <span class="section-title">Certifications & Awards</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="cert-list fade-up">
-    <div class="cert-item">
-      <span class="cert-name">GATE Qualified — CS (367) & Data Analytics (381)</span>
-      <span class="cert-org">IIT / IISc · 2024</span>
+  <section id="contact" class="section" style="padding-top:0">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Contact</span>
+      <div class="section-line"></div>
     </div>
-    <div class="cert-item">
-      <span class="cert-name">Google Gen AI Exchange — Certificate of Completion</span>
-      <span class="cert-org">Google / Hack2Skill · 2024</span>
+    <div class="fade-up">
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;max-width:480px">
+        Actively looking for AI/ML engineering roles at FAANG or quant firms. Open to full-time positions, contract work, or a good technical conversation.
+      </p>
+      <div class="contact-list">
+        <a href="mailto:smn2219@gmail.com" class="contact-item">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">smn2219@gmail.com</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="tel:+917218977106" class="contact-item">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">721-897-7106</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://linkedin.com/in/swapnil-nangare" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">linkedin.com/in/swapnil-nangare</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://github.com/7smn2219" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">github.com/7smn2219</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://github.com/swapnil-nangare-crave" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-label">GitHub (work)</span>
+          <span class="contact-value">github.com/swapnil-nangare-crave</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a href="https://medium.com/@7smn2219" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-label">Blog</span>
+          <span class="contact-value">medium.com/@7smn2219</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
     </div>
-    <div class="cert-item">
-      <span class="cert-name">Generative AI with AWS</span>
-      <span class="cert-org">Udacity · 2024</span>
-    </div>
-    <div class="cert-item">
-      <span class="cert-name">Kaggle: ML, Deep Learning, Data Viz, Python, SQL</span>
-      <span class="cert-org">Kaggle · 2023</span>
-    </div>
-    <div class="cert-item" style="border-bottom:none">
-      <span class="cert-name">2nd Rank — Ode-to-Code (Solo & Team)</span>
-      <span class="cert-org">GCoEA · 2022</span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section" style="padding-top:0">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <span class="section-title">Contact</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="fade-up">
-    <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:1.75rem;max-width:500px">
-      Actively looking for AI/ML engineering roles at FAANG or quant firms. Open to full-time positions, contract work, or technical conversations.
-    </p>
-    <div class="contact-links">
-      <a href="mailto:smn2219@gmail.com" class="contact-link">
-        <span class="contact-link-label">Email</span>
-        <span class="contact-link-value">smn2219@gmail.com</span>
-        <span class="contact-arrow">↗</span>
-      </a>
-      <a href="tel:+17218977106" class="contact-link">
-        <span class="contact-link-label">Phone</span>
-        <span class="contact-link-value">721-897-7106</span>
-        <span class="contact-arrow">↗</span>
-      </a>
-      <a href="https://linkedin.com/in/swapnil-nangare" target="_blank" rel="noopener" class="contact-link">
-        <span class="contact-link-label">LinkedIn</span>
-        <span class="contact-link-value">linkedin.com/in/swapnil-nangare</span>
-        <span class="contact-arrow">↗</span>
-      </a>
-      <a href="https://github.com/7smn2219" target="_blank" rel="noopener" class="contact-link">
-        <span class="contact-link-label">GitHub</span>
-        <span class="contact-link-value">github.com/7smn2219</span>
-        <span class="contact-arrow">↗</span>
-      </a>
-    </div>
-  </div>
-</section>
 </div>
 
 <footer>
   <span class="footer-note">Swapnil Nangare · Pune, IN</span>
-  <span class="footer-note" style="color:var(--accent)">Open to relocation</span>
+  <span class="footer-note">Open to relocation</span>
 </footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if(e.isIntersecting){
+    if (e.isIntersecting) {
       e.target.classList.add('visible');
       observer.unobserve(e.target);
     }
   });
-},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 </body>
